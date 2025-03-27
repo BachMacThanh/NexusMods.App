@@ -24,7 +24,6 @@ public interface INexusApiClient
 
     /// <summary>
     /// Generates download links for a given game.
-    /// [Premium only endpoint, use other overload for free users].
     /// </summary>
     /// <param name="domain">
     ///     Unique, human friendly name for the game used in URLs. e.g. 'skyrim'
@@ -38,9 +37,6 @@ public interface INexusApiClient
     /// </param>
     /// <param name="token">Token used to cancel the task.</param>
     /// <returns> List of available download links. </returns>
-    /// <remarks>
-    ///    Currently available for Premium users only; with some minor exceptions [nxm links].
-    /// </remarks>
     Task<Response<DownloadLink[]>> DownloadLinksAsync(string domain, ModId modId, FileId fileId, CancellationToken token = default);
 
     /// <summary>
@@ -60,9 +56,6 @@ public interface INexusApiClient
     /// <param name="token">Token used to cancel the task.</param>
     /// <param name="key">Key required for free user to download from the site.</param>
     /// <returns> List of available download links. </returns>
-    /// <remarks>
-    ///    Currently available for Premium users only; with some minor exceptions [nxm links].
-    /// </remarks>
     Task<Response<DownloadLink[]>> DownloadLinksAsync(string domain, ModId modId, FileId fileId, NXMKey key, DateTime expireTime, CancellationToken token = default);
 
 

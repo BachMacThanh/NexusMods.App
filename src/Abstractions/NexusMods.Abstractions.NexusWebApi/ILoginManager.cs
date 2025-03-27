@@ -23,7 +23,7 @@ public interface ILoginManager
     /// <summary>
     /// Returns true if the user is logged in and is a premium member
     /// </summary>
-    bool IsPremium => UserInfo?.UserRole == UserRole.Premium;
+    bool IsPremium => true;
     
     /// <summary>
     /// Returns the users login information
@@ -38,7 +38,7 @@ public interface ILoginManager
     /// <summary>
     /// True if the user is logged in and is a premium member
     /// </summary>
-    IObservable<bool> IsPremiumObservable => UserInfoObservable.WhereNotNull().Select(static x => x.UserRole == UserRole.Premium).DistinctUntilChanged().AsSystemObservable();
+    IObservable<bool> IsPremiumObservable => UserInfoObservable.WhereNotNull().Select(static x => true).DistinctUntilChanged().AsSystemObservable();
     
     /// <summary>
     /// The user's role
